@@ -28,12 +28,19 @@ MailHogは、開発環境でのメール送信をテストするためのツー�
 - `.env` ファイルに以下の設定を追加します。これにより、Laravelがメール送信時にMailHogを使用するようになります。
 
 MAIL_MAILER=smtp
+
 MAIL_HOST=mailhog
+
 MAIL_PORT=1025
+
 MAIL_USERNAME=null
+
 MAIL_PASSWORD=null
+
 MAIL_ENCRYPTION=null
+
 MAIL_FROM_ADDRESS="noreply@example.com"
+
 MAIL_FROM_NAME="${APP_NAME}"
 
 これにより、開発中に送信されるすべてのメールがMailHogで確認できるようになります。
