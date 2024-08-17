@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Mail\CustomVerificationMail;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\URL;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -41,4 +46,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // sendEmailVerificationNotification メソッドでカスタムメールを送信
+    public function sendEmailVerificationNotification()
+    {
+        $this->sendVerificationEmail($this);
+    }
+
+    // メール認証URLを生成し、カスタムメールを送信
+    public function sendVerificationEmail($user)
+    {
+        $verificationUrl = URL::temporarySignedRoute(
+            'verification.verify', 
+            Carbon::now()->addMinutes(60), 
+            ['id' => $user->id, 'hash' => sha1($user->email)]
+        );
+
+        // Custom Mailable
+        Mail::to($user->email)->send(new CustomVerificationMail($user, $verificationUrl));
+    }
 }
