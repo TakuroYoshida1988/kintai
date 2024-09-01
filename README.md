@@ -1,7 +1,18 @@
 # 勤怠管理アプリ
+勤怠を管理するためのアプリです。
+ユーザー登録とログインを行い、打刻ページで勤務開始、勤務終了、休憩開始、休憩終了の状態を選択していきます。
+勤怠の一覧が、日付別とユーザー別で表示可能です。
 
 ![kintai](https://github.com/user-attachments/assets/f4ff868f-2cfa-4ce4-bf81-672ee0693db5)
 ![kintai2](https://github.com/user-attachments/assets/7418f178-3d51-4b38-93fc-39b6cb172e29)
+
+# 機能一覧
+・ユーザー登録機能
+・メール認証機能（MailHog上で動作）
+・ログイン機能
+・打刻機能（勤務開始、勤務終了、休憩開始、休憩終了）
+・勤怠一覧の表示機能（日付別、ユーザー別）
+
 
 ## 環境構築
 
@@ -53,6 +64,10 @@ MAIL_FROM_NAME="${APP_NAME}"
 - Laravel 10.0
 - MySQL 8.0
 - MailHog
+
+## テーブル設計
+
+
 
 ## URL
 - 開発環境：`http://localhost/`
