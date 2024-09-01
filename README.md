@@ -1,5 +1,7 @@
 # 勤怠管理アプリ
 
+![kintai](https://github.com/user-attachments/assets/f4ff868f-2cfa-4ce4-bf81-672ee0693db5)
+
 ## 環境構築
 
 ### Dockerビルド
