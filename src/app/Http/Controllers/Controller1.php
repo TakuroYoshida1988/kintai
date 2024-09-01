@@ -177,6 +177,27 @@ class Controller1 extends Controller
 
     }
 
+    public function showUserAttendance($id)
+   {
+     // 指定されたユーザーの勤怠データを取得
+     $attendanceRecords = AttendanceRecord::where('user_id', $id)->paginate(5);
+
+     // ユーザー情報を取得
+     $user = User::find($id);
+
+     return view('user_attendance', compact('attendanceRecords', 'user'));
+   }
+
+    public function userList()
+   {
+
+    // ユーザー一覧を取得
+    $users = User::all();
+    // ユーザー一覧ページを表示
+    return view('user_list', compact('users'));
+
+   }
+
    public function sendVerification(Request $request)
    {
     $request->validate([
