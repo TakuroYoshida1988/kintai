@@ -70,6 +70,8 @@ MAIL_FROM_NAME="${APP_NAME}"
 - MailHog
 
 ## テーブル設計
+![kintai3](https://github.com/user-attachments/assets/41d8793a-380e-4929-8cba-646005450091)
+
 
 
 
