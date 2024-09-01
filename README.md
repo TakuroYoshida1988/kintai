@@ -1,6 +1,7 @@
 # 勤怠管理アプリ
 
 ![kintai](https://github.com/user-attachments/assets/f4ff868f-2cfa-4ce4-bf81-672ee0693db5)
+![kintai2](https://github.com/user-attachments/assets/7418f178-3d51-4b38-93fc-39b6cb172e29)
 
 ## 環境構築
 
