@@ -11,6 +11,7 @@
             <ul>
                 <li><a href="/">ホーム</a></li>
                 <li><a href="/attendance">日付一覧</a></li>
+                <li><a href="/users">ユーザー一覧</a></li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -42,14 +43,14 @@
                 <button type="submit" name="action" value="clock_out" {{ !$isWorking || $isOnBreak ? 'disabled' : '' }}>勤務終了</button>
             </form>
 
-           <form action="{{ route('break.start') }}" method="post">
-               @csrf
-               <button type="submit" name="action" value="break_start" {{ !$isWorking || $isOnBreak ? 'disabled' : '' }}>休憩開始</button>
+            <form action="{{ route('break.start') }}" method="post">
+                @csrf
+                <button type="submit" name="action" value="break_start" {{ !$isWorking || $isOnBreak ? 'disabled' : '' }}>休憩開始</button>
             </form>
             
             <form action="{{ route('break.end') }}" method="post">
-               @csrf
-               <button type="submit" name="action" value="break_end" {{ !$isWorking || !$isOnBreak ? 'disabled' : '' }}>休憩終了</button>
+                @csrf
+                <button type="submit" name="action" value="break_end" {{ !$isWorking || !$isOnBreak ? 'disabled' : '' }}>休憩終了</button>
             </form>
         </div>
     </main>
